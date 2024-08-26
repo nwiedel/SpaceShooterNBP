@@ -17,6 +17,22 @@ public class ProjectileController : MonoBehaviour
         StartCoroutine(StopProjectile());
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Überprüfe, ob es ein Gegner ist
+        if (collision.CompareTag("Enemy"))
+        {
+            // Übergang im Animator auf die Dastroy Animation
+            collision.GetComponent<Animator>().SetTrigger("Destroy");
+            // Zerstöre den Collider
+            Destroy(collision);
+            //Zerstöre den Gegner
+            Destroy(collision.gameObject, 1f);
+            // Zerstöre Projektil
+            Destroy(gameObject);
+        }
+    }
+
     private IEnumerator StopProjectile()
     {
         yield return new WaitForSeconds(lifeSpan);

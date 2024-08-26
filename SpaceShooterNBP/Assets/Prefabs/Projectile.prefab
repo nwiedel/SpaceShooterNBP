@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: {x: 10, y: 0}
-  lifeSpan: 3
+  lifeSpan: 2
 --- !u!58 &8850098869253579370
 CircleCollider2D:
   m_ObjectHideFlags: 0
